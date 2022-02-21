@@ -4,6 +4,7 @@ path = input("Enter path >> ")
 total_files = 0
 total_dir = 0
 for base, dirs, files in os.walk(path):
+    dirs =  sorted(dirs)
     file_count = 0
     for directories in dirs:
         total_dir += 1
