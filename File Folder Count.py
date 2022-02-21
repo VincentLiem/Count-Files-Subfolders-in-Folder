@@ -17,12 +17,14 @@ for base, dirs, files in os.walk(path):
         total_files += 1
         file_count += 1
     if file_count >= exclude_under:
-        with open('File count.txt', 'a') as save:
-            save.write(base + ' : ' + str(file_count) + ' files \n')
+        if save_file == "Y" or save_file == "y":
+            with open('File count.txt', 'a') as save:
+                save.write(base + ' : ' + str(file_count) + ' files \n')
         print(base, " : ", file_count, " files")
 print("Total files: ", total_files)
 print("Total directories: ", total_dir)
-with open('File count.txt', 'a') as save:
-    save.write("Total files: " + str(total_files) + '\n')
-    save.write("Total directories: " + str(total_dir) + '\n')
-save.close()
+if save_file == "Y" or save_file == "y":
+    with open('File count.txt', 'a') as save:
+        save.write("Total files: " + str(total_files) + '\n')
+        save.write("Total directories: " + str(total_dir) + '\n')
+    save.close()
