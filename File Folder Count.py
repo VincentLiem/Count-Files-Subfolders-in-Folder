@@ -1,6 +1,7 @@
 import os
 
 path = input("Enter path >> ")
+exclude_under = int(input("Exclude folders with less than this many files >> "))
 total_files = 0
 total_dir = 0
 for base, dirs, files in os.walk(path):
@@ -11,6 +12,7 @@ for base, dirs, files in os.walk(path):
     for Files in files:
         total_files += 1
         file_count += 1
-    print(base, " : ", file_count, " files")
+    if file_count >= exclude_under:
+        print(base, " : ", file_count, " files")
 print("Total files: ", total_files)
 print("Total directories: ", total_dir)
