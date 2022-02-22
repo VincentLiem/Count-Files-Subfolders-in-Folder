@@ -10,6 +10,7 @@ if CheckYes(save_file):
         save.write(path + '\n')
 total_files = 0
 total_dir = 0
+exclude_count = 0
 for base, dirs, files in os.walk(path):
     dirs = sorted(dirs)
     file_count = 0
@@ -23,10 +24,14 @@ for base, dirs, files in os.walk(path):
             with open('File count.txt', 'a') as save:
                 save.write(base + ' : ' + str(file_count) + ' files \n')
         print(base, " : ", file_count, " files")
+    if file_count < exclude_under:
+        exclude_count += 1
+print(exclude_count, "directories hidden")
 print("Total files: ", total_files)
 print("Total directories: ", total_dir)
 if CheckYes(save_file):
     with open('File count.txt', 'a') as save:
+        save.write(str(exclude_count) + ' directories hidden' + '\n')
         save.write("Total files: " + str(total_files) + '\n')
         save.write("Total directories: " + str(total_dir) + '\n')
     save.close()
