@@ -3,9 +3,9 @@ import os
 path = input("Enter path >> ")
 try:
     exclude_under = int(input("Exclude folders with less than this many files >> "))
-except:
+except ValueError:
     print ('Number not entered, including all')
-    exclude_under = 0 
+    exclude_under = 0
 save_file = input("Save to text file? (Y/N) >> ")
 def CheckYes(x):
     return x.lower() == "y" or x.lower() == "yes"
