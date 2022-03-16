@@ -1,10 +1,14 @@
 import os
 
 path = input("Enter path >> ")
-exclude_under = int(input("Exclude folders with less than this many files >> "))
+try:
+    exclude_under = int(input("Exclude folders with less than this many files >> "))
+except:
+    print ('Number not entered, including all')
+    exclude_under = 0 
 save_file = input("Save to text file? (Y/N) >> ")
 def CheckYes(x):
-    return x == "Y" or x == "y"
+    return x.lower() == "y" or x.lower() == "yes"
 if CheckYes(save_file):
     with open('File count.txt', 'w') as save:
         save.write(path + '\n')
