@@ -40,4 +40,3 @@ if CheckYes(save_file):
             save.write(str(exclude_count) + ' directories hidden' + '\n')
         save.write("Total files: " + str(total_files) + '\n')
         save.write("Total directories: " + str(total_dir) + '\n')
-    save.close()
